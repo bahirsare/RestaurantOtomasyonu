@@ -6,7 +6,7 @@
         internal static List<Menu> Beverages = new List<Menu>();
         internal static List<Menu> Desserts = new List<Menu>();
         internal static List<Menu> WholeMenu = new List<Menu>();
-        int Id;
+        internal int Id;
         internal string Type;//ürün tipi (yiyecek, içecek, tatlı vb.)
         internal string Name;
         internal double Price;
@@ -58,15 +58,16 @@
                 Console.WriteLine("Geçersiz Menü İsmi!");
             }
         }
-        void ListMenu(int id)
-        {
-
-        }
-        internal void UpdateMenu()
+       internal void ListMenu()
         {
             ListMenu("yiyecek");
             ListMenu("icecek");
             ListMenu("tatli");
+        }
+        internal void UpdateMenu()
+        {
+            ListMenu("all");
+
             Console.WriteLine("Lütfen güncellemek istediğiniz ürünün ID değerini giriniz:");
             if (int.TryParse(Console.ReadLine(), out int id))
             {
@@ -237,4 +238,23 @@
             }
         }
     }
+    internal class Order
+    {
+        public int Id;
+        public string Name;
+        public double Price;
+        public int TableId;
+        public int quantity;
+
+        public Order(int id, string name, int tableId,double price)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.TableId = tableId;
+            this.Price = price;
+            this.quantity = 1;
+        }
+        
+    }
+
 }
