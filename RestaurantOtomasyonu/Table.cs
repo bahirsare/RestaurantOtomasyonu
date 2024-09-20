@@ -156,7 +156,7 @@
                     if (selectedTable != null)
                     {
                         selectedTable.IsOccupied = false;
-                        Console.WriteLine($"Masa {id} için Hesap:{bill}\nAfiyet Olsun, Yine Bekleriz!");
+                        Console.WriteLine($"Masa {id} için Hesap:{bill} ₺\nAfiyet Olsun, Yine Bekleriz!");
                     }
                 }
                 else
@@ -164,7 +164,7 @@
                     Console.WriteLine("Girilen Masada Hesap Yok.");
                 }
             }
-            else { Console.WriteLine("Geçersiz masa idsi"); }
+            else { Console.WriteLine("Geçersiz masa Idsi"); }
         }
     }
 }

@@ -29,36 +29,40 @@
                 string choice = Console.ReadLine();
                if (choice == "1")//sipariş al
                 {
+                    Console.Clear();
                     table1.TakeOrder();   
                 }
                 else if (choice == "2")//hesap al
                 {
+                    Console.Clear();
                     table1.GenerateBill();
                 }
                 else if (choice == "3")
                 {
-                    Console.WriteLine("****MENÜ DÜZENLE****\n1-Yeni Ürün Kaydı\n2-Ürün Düzenleme\n3-Ürün Silme\n4-Ana Menü");
+                    Console.Clear();
+                    while(true){Console.WriteLine("****MENÜ DÜZENLE****\n1-Yeni Ürün Kaydı\n2-Ürün Düzenleme\n3-Ürün Silme\n4-Ana Menü");
                     string subChoice= Console.ReadLine();
-                    if (subChoice == "1")
-                    {                        
-                        m.AddItemtoMenu();
-                    }
-                    else if (subChoice == "2")
-                    {                        
-                        m.UpdateMenu();
-                    }
-                    else if (subChoice == "3")
-                    {                        
-                        m.RemovefromMenu();
-                    }
-                    else if (subChoice == "4")
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Geçersiz Değer Girdiniz!");
-                        continue;
+                        if (subChoice == "1")
+                        {
+                            m.AddItemtoMenu();
+                        }
+                        else if (subChoice == "2")
+                        {
+                            m.UpdateMenu();
+                        }
+                        else if (subChoice == "3")
+                        {
+                            m.RemovefromMenu();
+                        }
+                        else if (subChoice == "4")
+                        {
+                            MainMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Geçersiz Değer Girdiniz!");
+                            continue;
+                        }
                     }
                 }
                 else if (choice == "4")

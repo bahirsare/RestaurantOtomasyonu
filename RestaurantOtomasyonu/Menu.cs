@@ -58,7 +58,7 @@
                 Console.WriteLine("Geçersiz Menü İsmi!");
             }
         }
-       internal void ListMenu()
+        internal void ListMenu()
         {
             ListMenu("yiyecek");
             ListMenu("icecek");
@@ -66,15 +66,16 @@
         }
         internal void UpdateMenu()
         {
-            ListMenu("all");
-
+            ListMenu();
             Console.WriteLine("Lütfen güncellemek istediğiniz ürünün ID değerini giriniz:");
             if (int.TryParse(Console.ReadLine(), out int id))
             {
+                bool isFound = false;
                 foreach (Menu item in WholeMenu)
                 {
                     if (item.Id == id)
                     {
+                        isFound = true;
                         Console.WriteLine($"ID: {item.Id} Ürün Tipi: {item.Type} Ürün Adı: {item.Name} Fiyatı: {item.Price}");
                         Console.WriteLine("Yeni ürün adı giriniz(Değiştirmek istemiyorsanız 'Enter' tuşuna basınız.):");
                         string newName = Console.ReadLine();
@@ -84,9 +85,13 @@
                         if (double.TryParse(Console.ReadLine(), out double newPrice))
                         {
                             item.Price = newPrice;
+                            break;
                         }
                     }
-                    else { Console.WriteLine("Geçersiz ID!!"); }
+                }
+                if (isFound)
+                {
+                    Console.WriteLine("Geçersiz ID!!!");
                 }
             }
         }
@@ -246,7 +251,7 @@
         public int TableId;
         public int quantity;
 
-        public Order(int id, string name, int tableId,double price)
+        public Order(int id, string name, int tableId, double price)
         {
             this.Id = id;
             this.Name = name;
@@ -254,7 +259,7 @@
             this.Price = price;
             this.quantity = 1;
         }
-        
+
     }
 
 }
